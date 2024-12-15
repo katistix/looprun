@@ -47,17 +47,26 @@ func startServer() {
 // Function to stop the server
 func stopServer() {
 	if serverProcess != nil && serverProcess.Process != nil {
+		// Kill the server process
 		err := serverProcess.Process.Kill()
 		if err != nil {
 			fmt.Printf("Failed to kill server: %s\n", err)
 		} else {
-			fmt.Println("Server stopped")
+			// Wait for the process to actually terminate
+			err := serverProcess.Wait()
+			if err != nil {
+				fmt.Printf("Failed to wait for process termination: %s\n", err)
+			} else {
+				fmt.Println("Server stopped successfully.")
+			}
 		}
+		serverProcess = nil
 	}
 }
 
 // Function to restart the server
 func restartServer() {
+	fmt.Println("Attempting to stop and restart the server...")
 	stopServer()
 	time.Sleep(1 * time.Second) // Add small delay for the process to terminate properly
 	startServer()
