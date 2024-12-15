@@ -1,4 +1,4 @@
-module katistix/looprun
+module github.com/katistix/looprun
 
 go 1.22.4
 
