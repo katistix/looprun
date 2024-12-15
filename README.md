@@ -1,7 +1,3 @@
-Here’s the updated `README.md` with the additional sections and emojis to make it more engaging:
-
----
-
 # LoopRun 🚀
 
 LoopRun is a simple CLI tool that allows you to run and restart your commands easily. It listens for keyboard input and allows you to restart your command (e.g., a server) by pressing `Ctrl+R`. It's perfect for local development environments where you need to restart servers frequently.
